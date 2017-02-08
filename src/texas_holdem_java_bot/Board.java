@@ -50,8 +50,17 @@ public class Board {
 		System.out.print(", " + river.toString());
 	}
 	
+	/* TODO - fix - not imp
 	@Override
 	public String toString() {
-		return Arrays.deepToString(flop);
+		if (getTurn() == null) {
+			return Arrays.deepToString(flop);
+		} else if (turn != null && river == null) {
+			return Arrays.deepToString(flop) + turn.toString();
+		} else if (turn != null && river != null) {
+			return Arrays.deepToString(flop) + turn.toString() + river.toString();
+		}
+		return "ssssssssssssss";
 	}
+	*/
 }

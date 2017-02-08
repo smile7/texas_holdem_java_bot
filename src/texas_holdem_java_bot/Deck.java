@@ -28,38 +28,4 @@ public class Deck {
 		Collections.shuffle(cards);
 		//System.out.println(cards.toString());
 	}
-	/*
-	public Card dealHand() {
-		
-	}
-	
-	/*
-	public void printCards() {
-
-		StringBuilder suits = new StringBuilder();
-		
-		for (int i = 0; i < cards.size(); i++) {
-	        Card card = cards.get(i);
-	        suits.append(" ");
-	        suits.append(card.getValue());
-
-	        switch (card.getSuit()) {
-	            case spades:
-	                suits.append((char)'\u2660');
-	                break;
-	            case diamonds:
-	                suits.append((char)'\u2666');
-	                break;
-	            case clubs:
-	                suits.append((char)'\u2663');
-	                break;
-	            case hearts:
-	                suits.append((char)'\u2764');
-	                break;
-	        }
-
-	    }
-		//System.out.println(suits);
-	}
-	*/
 }
