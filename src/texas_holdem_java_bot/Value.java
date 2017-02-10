@@ -3,6 +3,7 @@ package texas_holdem_java_bot;
 import java.util.Comparator;
 
 public enum Value implements Comparator<Value> {
+	ace(1, 'A'),
 	two(2, '2'),
 	three(3, '3'),
 	four(4, '4'),
@@ -14,8 +15,7 @@ public enum Value implements Comparator<Value> {
 	ten(10, 'T'),
 	jack(11, 'J'),
 	queen(12, 'Q'),
-	king(13, 'K'),
-	ace(14, 'A');
+	king(13, 'K');
 	
 	private int suitValue;
 	private char value;

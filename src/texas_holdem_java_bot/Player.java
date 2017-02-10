@@ -14,7 +14,7 @@ public class Player {
 	public String getName() {
 	    return this.name;
 	}
-	
+		
 	public Card getCard(int cardNum) {
 		return this.hand[cardNum];
 	}
@@ -26,7 +26,7 @@ public class Player {
 	public void printHand() {
 		System.out.println(name + " has " + Arrays.deepToString(hand).replace("[", "").replace("]", ""));
 	}
-	
+		
 	@Override
 	public String toString() {
 		return Arrays.deepToString(hand) + "; chips " + this.chips;
