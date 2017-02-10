@@ -208,9 +208,7 @@ public class Evaluator {
 				return 1;
 			} else if (evaluatedHandPlayer1[i] < evaluatedHandPlayer2[i]) {
 				return -1;
-			}/* else if (evaluatedHandPlayer1[i] == evaluatedHandPlayer2[i]) {
-				isTie = true;
-			}*/
+			}
 		}
 		return 0;
 	}
