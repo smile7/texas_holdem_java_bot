@@ -8,7 +8,7 @@ public enum Suit {
 	
 	private int suitValue;
 	private char image;
-	
+		
 	private Suit(int suitValue, char image) {
 		this.suitValue = suitValue;
 		this.image = image;

@@ -65,19 +65,19 @@ public class Evaluator {
 		
 		if(suits[1] >=5) {
 			isFlush = true;
-			System.out.println("flush of clubs");
+			//System.out.println("flush of clubs");
 		}		
 		if(suits[2] >=5) {
 			isFlush = true;
-			System.out.println("flush of diamonds");
+			//System.out.println("flush of diamonds");
 		}
 		if(suits[3] >=5) {
 			isFlush = true;
-			System.out.println("flush of hearts");
+			//System.out.println("flush of hearts");
 		}
 		if(suits[4] >=5) {
 			isFlush = true;
-			System.out.println("flush of spades");
+			//System.out.println("flush of spades");
 		}
 		
 		// find straight
@@ -196,6 +196,10 @@ public class Evaluator {
 		    value[1] = orderedValues[0];
 		}
 		
+		if (isStraight && isFlush && value[1] == 14) {
+			value[0] = 10;
+		}
+		
 		//System.out.println(Arrays.toString(value));
 		//finally
 		return value;
@@ -203,11 +207,11 @@ public class Evaluator {
 	
 
 	public static int compareHands(int[] evaluatedHandPlayer1, int[] evaluatedHandPlayer2) {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < evaluatedHandPlayer1.length; i++) {
 			if (evaluatedHandPlayer1[i] > evaluatedHandPlayer2[i]) {
 				return 1;
 			} else if (evaluatedHandPlayer1[i] < evaluatedHandPlayer2[i]) {
-				return -1;
+				return 2;
 			}
 		}
 		return 0;
@@ -217,15 +221,66 @@ public class Evaluator {
 		String text;
 		switch (evaluatedHandArr[0]) {
 		case 1:
-			text = "high card";
+			text = "high card: " + evaluatedHandArr[1];
 			break;
 		case 2:
-			text = "pair of ";  // TODO
+			text = "pair of: " + evaluatedHandArr[1] + " and kicker: " + evaluatedHandArr[2];  // TODO
+			break;
+		case 3:
+			text = "two pairs: " + evaluatedHandArr[1] + " and " + evaluatedHandArr[2];
+			break;
+		case 4:
+			text = "three of a kind: " + evaluatedHandArr[1] + " and kicker: " + evaluatedHandArr[2];
+			break;
+		case 5:
+			text = "straight: " + evaluatedHandArr[1];
+			break;
+		case 6:
+			text = "flush: " + evaluatedHandArr[1];
+			break;
+		case 7:
+			text = "full house: " + evaluatedHandArr[1] + " over " + evaluatedHandArr[2];
+			break;
+		case 8:
+			text = "four of a kind: " + evaluatedHandArr[1];
+			break;
+		case 9:
+			text = "straight flush: " + evaluatedHandArr[1];
+			break;
+		case 10:
+			text = "ROYAL FLUSH";
 			break;
 		default:
 			text = "There has got to be some error. Probably evaluatedHandPlayerX[0] has wrong value.";
 		}
 		
 		System.out.println(text);
+	}
+	
+	public static int returnResult(int winner, int[] evaluatedHandPlayer1, int[] evaluatedHandPlayer2) {
+		if (evaluatedHandPlayer1.length == 7) {
+			if (winner == 1) {
+				System.out.print("Computer wins with " );
+				displayWinnigCards(evaluatedHandPlayer1);
+				return 1;
+			} else if (winner == 2) {
+				System.out.print("Human wins with ");
+				displayWinnigCards(evaluatedHandPlayer2);
+				return 2;
+			} else if (winner == 0) {
+				System.out.println("Players have equal strength of cards. They split the pot.");
+				return 0;
+			}
+			return 0;
+		} else {
+			if (winner == 1) {
+				return 1;
+			} else if (winner == 2) {
+				return 2;
+			} else if (winner == 0) {
+				return 0;
+			}
+			return 0;
+		}
 	}
 }

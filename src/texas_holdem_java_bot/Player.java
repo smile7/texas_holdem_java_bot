@@ -14,6 +14,10 @@ public class Player {
 	public String getName() {
 	    return this.name;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 		
 	public Card getCard(int cardNum) {
 		return this.hand[cardNum];
@@ -22,7 +26,7 @@ public class Player {
 	public void setCard(Card card, int cardNum) {
 		this.hand[cardNum] = card;
 	}
-	
+
 	public void printHand() {
 		System.out.println(name + " has " + Arrays.deepToString(hand).replace("[", "").replace("]", ""));
 	}
